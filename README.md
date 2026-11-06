@@ -15,3 +15,16 @@ _salary, net salary, and employee details._
     README.md
     LICENSE
 
+# Run
+
+```bash
+# Cloning in the repository
+git clone https://github.com/Adi0oo0/Salary-management-system.git
+
+# Compilation 
+gcc main.c -o main
+
+# Run the object file created
+./main
+```
+
