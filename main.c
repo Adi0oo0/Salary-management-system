@@ -204,7 +204,7 @@ void display_all_employees(void){
     printf("All Employees:\n");
     for (int i = 0; i < 100; i++) {
         if (employees[i] != NULL) {
-            printf("\nName: %s  \t  Salary: %ld  \t  Allowance: %ld  \t  Deduction percentage: %%%.1f\n", employees[i], employee_salary[i], allowance[i], (float)deducted_salary(employees[i]) / employee_salary[i] * 100);
+            printf("\nName: %s  \t  Salary: %ld  \t  Allowance: %ld  \t  Deduction percentage: %%%.1f  \t  Deducted Salary: %ld\n", employees[i], employee_salary[i], allowance[i], (1 - (float)deducted_salary(employees[i]) / employee_salary[i]) * 100, deducted_salary(employees[i]));
         }
     }
 }
