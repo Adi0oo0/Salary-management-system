@@ -25,6 +25,7 @@ long deducted_salary(char *name);
 char *employees[100];
 long employee_salary[100];
 long allowance[100];
+char helpdesk[] = "Helpdesk:\n1. To add an employee, select 'Administrator' and then 'Add Employee'.\n2. To remove an employee, select 'Administrator' and then 'Remove Employee'.\n3. To update an employee's salary or allowance, select 'Administrator' and then 'Update Employee'.\n4. To view all employees, select 'Administrator' and then 'All Employees'.\n5. To calculate an employee's salary after deductions, select 'Calculate Salary' and enter the employee's name.\n6. To exit the program, select 'Exit'.\n\n";
 
 // ------------------------------------------------------------------------------------------
 
@@ -49,11 +50,13 @@ int main(){
     }
     // Helpdesk
     else if (option == 3) {
-        printf("Help selected.\n");
+        printf("%s", helpdesk);
+        printf("\n=================================================================================================================\n");
+
     } 
     // Exit
     else if (option == 4) {
-        printf("Exit selected.\n");
+        printf("Exit selected.\n\n");
         return 0;
     } else {
         printf("Invalid option selected.\n");
@@ -123,8 +126,9 @@ int input_0(void){
 }
 
 void administrator(void){
+    printf("Administrator Menu:\n");
     while (1) {
-        printf("Administrator Menu:\n");
+        
         printf("Select an integer option among: \n");
         printf("1. Add Employee\t2. Remove Employee\t3. Update Employee\t4. All Employees\t 5. Back\n--> ");
         int option;
@@ -180,6 +184,7 @@ void remove_employee(void){
     char name[100];
     printf("Enter employee name to remove: ");
     fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = 0; // Remove newline character from name
 
     // Remove employee from the list
     for (int i = 0; i < 100; i++) {
@@ -227,6 +232,8 @@ void update_employee(void){
     }
     printf("Employee %s not found.\n", name);
 }
+
+
 
 
 // ------------------------------------------------------------------------------------------
